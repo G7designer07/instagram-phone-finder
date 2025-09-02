@@ -1,35 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <title>Resultados - {{ profile }}</title>
+  <meta charset="UTF-8">
+  <title>Resultado - {{ info.username }}</title>
 </head>
-<body style="font-family: Arial, sans-serif; margin:30px;">
-  <h2>Resultados para: {{ profile }}</h2>
+<body style="font-family: Arial; margin:30px;">
+  <h2>Dados públicos do perfil: {{ info.username }}</h2>
 
-  <form action="/download" method="post" style="display:inline-block; margin-bottom:10px;">
-    <input type="hidden" name="profile" value="{{ profile }}">
-    <input type="hidden" name="limit" value="{{ limit }}">
-    <button type="submit">📥 Baixar CSV (nome,username,telefone)</button>
-  </form>
-
-  <table border="1" cellpadding="6" cellspacing="0" style="margin-top:20px; border-collapse:collapse; width:100%;">
-    <thead style="background:#f0f0f0;">
-      <tr><th>Nome</th><th>Username</th><th>Telefone</th></tr>
-    </thead>
-    <tbody>
-      {% for r in results %}
-        <tr>
-          <td>{{ r.name }}</td>
-          <td>{{ r.username }}</td>
-          <td>{{ r.phone if r.phone else "-" }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:80%; margin-top:20px;">
+    <tr>
+      <th>Username</th>
+      <td>{{ info.username }}</td>
+    </tr>
+    <tr>
+      <th>Nome público</th>
+      <td>{{ info.public_name }}</td>
+    </tr>
+    <tr>
+      <th>Bio</th>
+      <td>{{ info.bio }}</td>
+    </tr>
   </table>
 
-  <p style="margin-top:16px; color:#555;">Quantidade: {{ results|length }} (limit: {{ limit }})</p>
+  <form action="/download" method="post" style="margin-top:20px;">
+    <input type="hidden" name="username" value="{{ info.username }}">
+    <button type="submit">📥 Baixar CSV</button>
+  </form>
 
-  <p style="margin-top:12px;"><a href="/">← Voltar</a></p>
+  <p style="margin-top:15px;"><a href="/">← Voltar</a></p>
 </body>
 </html>
