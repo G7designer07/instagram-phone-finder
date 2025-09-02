@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Exportar dados públicos do Instagram</title>
-</head>
-<body style="font-family: Arial; text-align:center; margin-top:50px;">
-  <h2>🔎 Exportar dados públicos do Instagram</h2>
-  {% if error %}
-    <p style="color:red">{{ error }}</p>
-  {% endif %}
-  <form action="/export" method="post" style="margin-top:20px;">
-    <input type="text" name="profile" placeholder="@usuario ou URL" style="width:400px; padding:8px;" required>
-    <div style="margin-top:12px;">
-      <button type="submit">Gerar CSV</button>
-    </div>
-  </form>
-  <p style="margin-top:20px; color:#555;">⚠️ Apenas dados públicos serão coletados. Sem login.</p>
-</body>
-</html>
+<form action="/export" method="post" style="margin-top:20px;">
+  <input type="text" name="profile" placeholder="@usuario ou URL" style="width:400px; padding:8px;" required>
+  <div style="margin-top:12px;">
+    <button type="submit">Buscar Dados Públicos</button>
+  </div>
+</form>
