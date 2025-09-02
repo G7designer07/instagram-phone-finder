@@ -41,7 +41,6 @@ def export():
     if not info:
         return render_template("index.html", error="Perfil não encontrado ou privado.")
     
-    # Exibe os dados na página antes de baixar
     return render_template("results.html", info=info)
     
 @app.route("/download", methods=["POST"])
