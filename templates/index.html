@@ -1,26 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <title>Instagram Followers -> CSV</title>
+  <meta charset="UTF-8">
+  <title>Exportar dados públicos do Instagram</title>
 </head>
-<body style="font-family: Arial, sans-serif; text-align:center; margin-top:40px;">
-  <h2>🔎 Exportar seguidores (nome + telefone)</h2>
+<body style="font-family: Arial; text-align:center; margin-top:50px;">
+  <h2>🔎 Exportar dados públicos do Instagram</h2>
   {% if error %}
     <p style="color:red">{{ error }}</p>
   {% endif %}
   <form action="/export" method="post" style="margin-top:20px;">
-    <input type="text" name="profile" placeholder="Cole a URL do perfil (ex: https://www.instagram.com/usuario/ ou @usuario)" style="width:480px; padding:8px;" required>
-    <div style="margin-top:10px;">
-      <label>Limite de seguidores a verificar (max 2000)</label>
-      <input type="number" name="limit" value="500" min="1" max="2000" style="width:100px; padding:6px;">
-    </div>
+    <input type="text" name="profile" placeholder="@usuario ou URL" style="width:400px; padding:8px;" required>
     <div style="margin-top:12px;">
-      <button type="submit">Buscar e Mostrar</button>
+      <button type="submit">Gerar CSV</button>
     </div>
-    <p style="font-size:12px; color:#555; margin-top:10px;">
-      Observação: apenas aparecerá telefone quando o seguidor tiver o número público na conta.
-    </p>
   </form>
+  <p style="margin-top:20px; color:#555;">⚠️ Apenas dados públicos serão coletados. Sem login.</p>
 </body>
 </html>
